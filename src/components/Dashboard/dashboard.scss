@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+
+$mainBg: #fafafa;
+$blue: #29c6d1;
+$grey: #6c6c6c;
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: $mainBg;
+    font-family: 'Nunito', sans-serif;
+}
+
+.dashboard {
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+
+    .r-sidebar {
+        input#menu {
+            display: none;
+
+            &:checked ~ {
+
+                @media screen and (max-width: 960px) {
+                    .sidebar {
+                        left: 0;
+            
+                        label {
+                            position: absolute;
+                            bottom: 0;
+                            top: 0;
+                            right: 0;
+                            cursor: pointer;
+                            display: block;
+                            width: 45px ;
+                            height: 100%;
+                            pointer-events: visible;
+                            top: 0;
+                        
+                            span {
+                                width: 75%;
+                                background: url(../../assets/logoMenu.png);
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                position: relative;
+                                display: block; 
+                                transition: .3s ease all;
+                
+                                &::after {
+                                    content: "x";
+                                    display: block;
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    font-weight: 700;
+                                    color: #fff;
+                                }
+
+        
+                            }
+
+                        }
+        
+                    }
+            
+                }
+            
+            }
+
+        }
+
+    }
+
+    .navbar {
+        grid-column: 1/-1;
+        height: 3.3em;
+        width: 100vw;
+        position: relative;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $grey;
+        justify-content: space-between;
+
+
+        .logo {
+            width: 9em;
+            padding-left: 2em;
+            img {
+                width: 9em;
+                object-fit: cover;
+            }
+
+        }
+
+        .options {
+                padding-right: 2em;
+
+            i {
+                margin: 0 .5em;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+        }
+
+    }
+
+    .sidebar {
+        grid-column: 1/3;
+        width: 13em;
+        height: 100%;
+        position: fixed;
+        top: 3.3em;
+        left: 0;
+        background-color: lighten($grey, 47%);
+        transition: .4s ease all;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: darken($grey, 15%);
+            line-height: 3em;
+        }
+
+        li {
+            text-transform: capitalize;
+            border-top: 1px solid lighten($grey, 30%);
+            cursor: pointer;
+            padding-left: 2.5em;
+
+            &:hover {
+                background-color: darkcyan;
+            }
+
+            &:active{
+                background: #fff;
+                -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.26);
+                -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.26);
+                box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.26);
+
+            }
+
+            &:first-child {
+                background: $blue;
+                pointer-events: none;
+                display: flex;
+                position: relative;
+                color: #fff;
+                
+                label {
+                    display: none;
+                }
+            }
+
+        }
+
+        @media screen and (max-width: 960px) {
+            grid-column: 1/2;
+            left: -10.3em;
+
+            li {
+                border: none;
+            }
+
+            label {
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+                display: block !important;
+                width: 45px ;
+                height: 100%;
+                pointer-events: visible;
+                top: 0;
+                
+                span {
+                    width: 75%;
+                    background: url(../../assets/logoMenu.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    position: relative;
+                    display: block;
+                    margin: 0 auto;
+
+
+                    &::after {
+                        content: "c";
+                        display: block;
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        color: #fff;
+                    }
+
+                }
+
+            }
+            
+        }
+
+    }
+
+    .content {
+        grid-column: 3/-1;
+        padding: 1.6em;
+        background-color: #fff;
+        margin: 1em auto;
+        height: 100%;
+
+        @media screen and (max-width: 960px) {
+            grid-column: 1/-1;
+            transition: .4s ease all;
+            margin: 1em 3.5em;
+        }
+   
+    }
+    
+}
